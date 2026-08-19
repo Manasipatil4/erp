@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: medical-erp-config
+  namespace: medical-erp
+data:
+  SPRING_PROFILES_ACTIVE: "production"
+  LOG_LEVEL: "INFO"
+  # Internal service-to-service URLs (ClusterIP DNS names — see 03-service-*.yaml)
+  MAIN_SERVICE_URL: "http://main-service:8080"
+  USER_SERVICE_URL: "http://user-service:8081"
+  PRODUCT_SERVICE_URL: "http://product-service:8082"
+  ORDER_SERVICE_URL: "http://order-service:8083"
+  # JWT expiration (ms) — not sensitive, only JWT_SECRET itself lives in the Secret
+  JWT_EXPIRATION: "86400000"
+  JWT_REFRESH_EXPIRATION: "604800000"
