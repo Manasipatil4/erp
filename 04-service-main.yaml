@@ -11,6 +11,6 @@ spec:
     app: main-service
   ports:
     - port: 8080
-      targetPort: 8080
+      targetPort: 80        # container listens on 80 (nginx) — Service still exposed as :8080
       protocol: TCP
       name: http
